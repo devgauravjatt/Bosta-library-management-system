@@ -5,11 +5,13 @@ Simple Docker setup for the Bosta Library Management System.
 ## Quick Start
 
 1. **Start the application:**
+
    ```bash
    docker-compose up -d
    ```
 
 2. **View logs:**
+
    ```bash
    docker-compose logs -f app
    ```
