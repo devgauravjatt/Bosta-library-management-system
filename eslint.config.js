@@ -5,10 +5,11 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
 	{
+		ignores: ["node_modules", "build", "dist"],
 		files: ["**/*.{js,mjs,cjs}"],
 		plugins: { js },
 		extends: ["js/recommended"],
 		languageOptions: { globals: globals.node },
 	},
-	{ files: ["**/*.jsonc"], plugins: { json }, language: "json/jsonc", extends: ["json/recommended"] },
+	{ files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
 ]);
