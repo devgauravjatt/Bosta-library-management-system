@@ -6,7 +6,7 @@ import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
 // list and search for borrows history
-export const getAllBorrows = catchAsync(async (req, res, next) => {
+export const getAllBorrows = catchAsync(async (req, res) => {
 	const { userId, bookId, status, overdue, sortByOverdue } = req.query;
 
 	const isAdmin = req.user.role === "ADMIN";

@@ -4,7 +4,7 @@ import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
 // List / search for books by isbn, title or author
-export const getAllBooks = catchAsync(async (req, res, next) => {
+export const getAllBooks = catchAsync(async (req, res) => {
 	const { title, author, isbn } = req.query;
 	const books = await prisma.book.findMany({
 		where: {

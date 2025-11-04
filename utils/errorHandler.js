@@ -3,10 +3,11 @@ import AppError from "./appError.js";
 // Handle Prisma Database Errors
 const handlePrismaClientKnownRequestError = (err) => {
 	switch (err.code) {
-		case "P2002":
+		case "P2002": {
 			// Unique constraint violation
 			const field = err.meta?.target?.[0] || "field";
 			return new AppError(`Duplicate ${field}. Please use another value!`, 400);
+		}
 
 		case "P2014":
 			// Foreign key constraint violation
@@ -33,7 +34,7 @@ const handlePrismaClientKnownRequestError = (err) => {
 	}
 };
 
-const handlePrismaClientValidationError = (err) => {
+const handlePrismaClientValidationError = () => {
 	return new AppError("Invalid input data provided.", 400);
 };
 
@@ -73,7 +74,7 @@ const sendErrorProd = (err, res) => {
 	}
 };
 
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res) => {
 	err.statusCode = err.statusCode || 500;
 	err.status = err.status || "error";
 

@@ -6,7 +6,7 @@ import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
 // Get all users by admin only
-export const getAllUsers = catchAsync(async (req, res, next) => {
+export const getAllUsers = catchAsync(async (req, res) => {
 	const users = await prisma.user.findMany({
 		select: {
 			name: true,

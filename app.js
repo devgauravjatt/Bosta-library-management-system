@@ -89,7 +89,7 @@ app.use("/api/v1/books", bookRoutes);
 app.use("/api/v1/borrows", borrowRoutes);
 
 // Handle 404 for undefined routes
-app.use((req, res, next) => {
+app.use((req, res) => {
 	res.status(404).json({
 		success: false,
 		message: `Can't find ${req.originalUrl} on this server!`,
